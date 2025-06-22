@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Card Fraud Detection</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            background-color: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        main {
+            flex: 1;
+            padding-top: 50px;
+        }
+        input[type=text] {
+            width: 60%;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        input[type=submit] {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        footer {
+            color: #888;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Credit Card Fraud Detection</h1>
+        <form action="/predict" method="post">
+            <p>Enter transaction data (comma-separated):</p>
+            <input type="text" name="features" placeholder="e.g. 0.1,1.2,2.4,...">
+            <br><br>
+            <input type="submit" value="Check">
+        </form>
 
+        {% if prediction_text %}
+        <h2 style="color: {{ result_color }}">
+            {% if result_color == 'green' %}✔️{% elif result_color == 'red' %}❌{% endif %}
+            {{ prediction_text }}
+        </h2>
+        {% endif %}
+    </main>
+
+    <footer>&copy; 2025 Uddandi Nikhitha Sree</footer>
+</body>
+</html>
